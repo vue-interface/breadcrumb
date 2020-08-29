@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Breadcrumb</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="./dist/Breadcrumb.css">
+    </head>
+    <body>
+        <div id="app" class="container">
+            <h1 class="mb-5">breadcrumb</h1>
+
+            <breadcrumb>
+                <router-link to="/">Home</router-link>
+            </breadcrumb>
+
+            <breadcrumb>
+                <a href="/">Home</a>
+                <a href="#">Library</a>
+            </breadcrumb>
+
+            <breadcrumb>
+                <router-link to="/">Home</router-link>
+                <a href="/library" active>Library</a>
+                <a href="#">Data</a>
+            </breadcrumb>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+        <script type="text/javascript" src="./dist/Breadcrumb.umd.js"></script>
+        <script type="text/javascript">
+            Vue.use(VueRouter);
+
+            const router = new VueRouter({
+                routes: [{
+                    path: '/test',
+                    name: 'Home'
+                }]
+            });
+
+            const vue = new Vue({
+                router,
+                el: '#app',
+                components: {
+                    Breadcrumb
+                }
+            });
+        </script>
+    </body>
+</html>
