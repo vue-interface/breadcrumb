@@ -1,27 +1,27 @@
 const plugin = require('tailwindcss/plugin');
-const { quote, escapeSvg } = require('@vue-interface/tailwindcss');
-const { colors } = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 module.exports = plugin(function({ addComponents, theme }) {
     const breadcrumb = {
-        ':root': {
-            '--breadcrumb-padding-x': '.5rem',
-            '--breadcrumb-padding-y': '1rem',
-            '--breadcrumb-margin-bottom': '1rem',
-            '--breadcrumb-background-color': theme('colors.gray.200', colors.gray[200]),
-            '--breadcrumb-border-radius': '.25rem',
+        // ':root': {
+        //     '--breadcrumb-padding-x': '.5rem',
+        //     '--breadcrumb-padding-y': '1rem',
+        //     '--breadcrumb-margin-bottom': '1rem',
+        //     '--breadcrumb-background-color': theme('colors.gray.200', colors.gray[200]),
+        //     '--breadcrumb-border-radius': '.25rem',
             
-            '--breadcrumb-item-padding-x': '.5rem',
+        //     '--breadcrumb-item-padding-x': '.5rem',
             
-            '--breadcrumb-divider-content': quote('/'),
-            '--breadcrumb-divider-color': theme('colors.gray.600', colors.gray[600]),
+        //     '--breadcrumb-divider-content': quote('/'),
+        //     '--breadcrumb-divider-color': theme('colors.gray.600', colors.gray[600]),
             
-            '--breadcrumb-active-color': theme('colors.gray.600', colors.gray[600]),
-        },
+        //     '--breadcrumb-active-color': theme('colors.gray.600', colors.gray[600]),
+        // },
         
         '.breadcrumb': {
             display: 'flex',
             flexWrap: 'wrap',
+            color: theme('breadcrumb.color'),
             padding: `${theme('breadcrumb.paddingY')} ${theme('breadcrumb.paddingX')}`,
             marginBottom: theme('breadcrumb.marginBottom'),
             listStyle: 'none',
@@ -42,7 +42,7 @@ module.exports = plugin(function({ addComponents, theme }) {
             display: 'inline-block', // Suppress underlining of the separator
             paddingRight: theme('breadcrumb.paddingX'),
             color: theme('breadcrumb.divider.color'),
-            content: escapeSvg(theme('breadcrumb.divider.content'))
+            content: theme('breadcrumb.divider.content')
         },
         
         '.breadcrumb-item.active': {
@@ -54,21 +54,23 @@ module.exports = plugin(function({ addComponents, theme }) {
 }, {
     theme: {
         breadcrumb: theme => ({
-            paddingX: '.5rem',
-            paddingY: '1rem',
+            paddingX: '.75rem',
+            paddingY: '.75rem',
             marginBottom: '1rem',
-            backgroundColor: theme('colors.gray.200', colors.gray[200]),
+            backgroundColor: theme('colors.gray.200', colors.gray['200']),
             borderRadius: '.25rem',
+            color: theme('colors.blue.500', colors.blue['500']),
             item: {
                 paddingX: '.5rem'
             },
             divider: {
-                content: quote('/'),
-                color: theme('colors.gray.600', colors.gray[600]),
+                content: '"/"',
+                color: theme('colors.gray.600', colors.gray['600']),
             },
             active: {
-                color: theme('colors.gray.600', colors.gray[600]),
+                color: theme('colors.gray.600', colors.gray['600']),
             }
         })
     }
+
 });

@@ -1,10 +1,4 @@
 <script>
-import { isUndefined } from '@vue-interface/utils';
-
-function appendClass(vnode, str) {
-    vnode.data.staticClass = `${vnode.data.staticClass && vnode.data.staticClass.replace(str, '') || ''} ${str}`.trim();  
-}
-
 function wrap(wrapper, fn) {
     return (e) => {
         if(typeof fn === 'function') {

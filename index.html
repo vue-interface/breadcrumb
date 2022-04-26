@@ -4,46 +4,27 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Breadcrumb</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-reboot.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-grid.min.css">
-        <link rel="stylesheet" href="./dist/Breadcrumb.css">
     </head>
     <body>
-        <div id="app" class="container">
-            <h1 class="mb-5">breadcrumb</h1>
+        <div id="app" class="container mx-auto mb-6">
+            <h1 class="text-4xl mb-6">breadcrumb</h1>
 
-            <breadcrumb>
-                <router-link to="/">Home</router-link>
-            </breadcrumb>
+            <h3 class="text-2xl mb-3">Basic Usage</h3>
 
             <breadcrumb>
                 <a href="/">Home</a>
-                <a href="#">Library</a>
-            </breadcrumb>
-
-            <breadcrumb>
-                <router-link to="/">Home</router-link>
                 <a href="/library" active>Library</a>
                 <a href="#">Data</a>
             </breadcrumb>
 
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
-        <script type="text/javascript" src="./dist/Breadcrumb.umd.js"></script>
-        <script type="text/javascript">
-            Vue.use(VueRouter);
-
-            const router = new VueRouter({
-                routes: [{
-                    path: '/test',
-                    name: 'Home'
-                }]
-            });
+        <script type="module">
+            import './index.css';
+            import Vue from 'vue/dist/vue';
+            import { Breadcrumb } from './index.js';
 
             const vue = new Vue({
-                router,
                 el: '#app',
                 components: {
                     Breadcrumb

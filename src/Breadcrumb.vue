@@ -9,11 +9,9 @@
 </template>
 
 <script>
-import BreadcrumbItems from './BreadcrumbItems';
+import BreadcrumbItems from './BreadcrumbItems.vue';
 
 export default {
-
-    name: 'Breadcrumb',
 
     components: {
         BreadcrumbItems
