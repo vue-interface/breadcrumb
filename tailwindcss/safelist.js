@@ -1,4 +1,4 @@
-module.exports = function safelist(subject, filter) {
+module.exports = function safelist() {
     return [
         'breadcrumb',
         'breadcrumb-item'
